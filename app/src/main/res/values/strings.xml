@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PanDa</string>
+    <string name="title_home">Home</string>
+    <string name="title_gift">Gift</string>
+    <string name="title_maps">Maps</string>
+    <string name="title_accout">Accout</string>
+    <string name="menu_save">Save</string>
+    <string name="mapkey_api">AIzaSyA0DaaTSCvBfJBYQY7J1dKQtqclu3CAspY</string>
+    <string name="toast_bottom">Choose Avatar Picture</string>
+    <string name="supervisor_profile_choose_image_title">picture</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
