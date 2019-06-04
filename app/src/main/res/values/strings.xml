@@ -8,6 +8,13 @@
     <string name="mapkey_api">AIzaSyA0DaaTSCvBfJBYQY7J1dKQtqclu3CAspY</string>
     <string name="toast_bottom">Choose Avatar Picture</string>
     <string name="supervisor_profile_choose_image_title">picture</string>
+    <string name="action_register">Register</string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="action_sign_in_short"></string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_username">UserName</string>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

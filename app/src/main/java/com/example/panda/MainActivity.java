@@ -1,5 +1,7 @@
 package com.example.panda;
 
+import android.app.Application;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
@@ -28,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
                     LoadFrafment(selectedFragment);
                     return true;
                 case R.id.navigation_gift:
-
                     selectedFragment = Gift.newGift();
                     actionBar.setTitle("Gift");
                     LoadFrafment(selectedFragment);
@@ -61,11 +62,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         actionBar = getSupportActionBar();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         actionBar.setTitle("Shop");
         LoadFrafment(new Home());
     }
+
 
 }
