@@ -1,80 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@drawable/gradient_lv"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".Login">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="24dp"
 
-        android:hint="@string/prompt_username"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/action_sign_in_short"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/rellay1"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/star" />
 
-    <Button
-        android:id="@+id/sign_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
-        android:text="@string/action_sign_in"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.183" />
+        <RelativeLayout
+            android:id="@+id/rellay1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_centerInParent="true">
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
-        android:text="@string/action_register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.175" />
 
-</android.support.constraint.ConstraintLayout>
+
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:hint="@string/prompt_username"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_below="@id/username"
+                android:hint="@string/prompt_password"
+                android:imeActionLabel="@string/action_sign_in_short"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true" />
+
+            <LinearLayout
+                android:id="@+id/ll_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/password"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/sign_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:text="@string/action_sign_in" />
+
+                <Button
+                    android:id="@+id/register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:text="@string/action_register" />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/conect_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_button"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="italic"
+                android:text="Sign In with Google"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/conect_fb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/conect_google"
+                android:textStyle="italic"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="90dp"
+                android:text="Sign In with Facebook"/>
+
+
+
+        </RelativeLayout>
+
+</RelativeLayout>

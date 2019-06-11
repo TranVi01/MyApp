@@ -5,7 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="android.permission.CAMERA" />
+    <!--<uses-permission android:name="com.example.permission.MAPS_RECEIVE"/>-->
+
+
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -14,6 +20,13 @@
         android:name="android.hardware.camera2"
         android:required="false" />
 
+    <!--<permission-->
+        <!--android:name="com.example.permission.MAPS_RECEIVE"-->
+        <!--android:protectionLevel="signature"/>-->
+
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,25 +34,63 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login">
 
+        <activity
+            android:name=".Login_facebook"
+            android:theme="@style/LoginTheme"
+            android:exported="true"
+            android:configChanges= "keyboard|keyboardHidden|screenLayout|screenSize|orientation">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".SignIn_google"
+            android:theme="@style/LoginTheme" />
+
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <activity
+            android:name=".Login"
+            android:theme="@style/LoginTheme" />
+
+        <activity
+            android:name=".Register"
+            android:theme="@style/LoginTheme" />
+
         <activity android:name=".MaQR" />
-        <activity android:name=".SelelectAccout"></activity>
+
+        <activity android:name=".SelelectAccout" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/mapkey_api" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
 
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+        <activity android:name=".MainActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 

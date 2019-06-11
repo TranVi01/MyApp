@@ -14,7 +14,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
     private ActionBar actionBar;
+    private String name;
+    private String email;
+    private int phone;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -25,25 +30,29 @@ public class MainActivity extends AppCompatActivity {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    selectedFragment = Home.newHome();
+                    selectedFragment = new Home();
                     actionBar.setTitle("Shop");
                     LoadFrafment(selectedFragment);
                     return true;
                 case R.id.navigation_gift:
-                    selectedFragment = Gift.newGift();
+                    selectedFragment = new Gift();
                     actionBar.setTitle("Gift");
                     LoadFrafment(selectedFragment);
                     return true;
                 case R.id.navigation_maps:
 
-                    selectedFragment = Map.newmap();
+                    selectedFragment = new Map();
                     actionBar.setTitle("Maps");
                     LoadFrafment(selectedFragment);
                     return true;
                 case R.id.navigation_accout:
-
-                    selectedFragment = Accout.newInstance();
+                    selectedFragment = new Accout();
                     actionBar.setTitle("Accout");
+                    InformationAccout informationAccout = new InformationAccout();
+                    name = informationAccout.getName();
+                    email = informationAccout.getEmail();
+                    phone = informationAccout.getPhone();
+                    selectedFragment = Accout.newInstance(name, email, phone);
                     LoadFrafment(selectedFragment);
                     return true;
             }
@@ -59,8 +68,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_main);
 
 

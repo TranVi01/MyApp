@@ -8,14 +8,28 @@
     <string name="mapkey_api">AIzaSyA0DaaTSCvBfJBYQY7J1dKQtqclu3CAspY</string>
     <string name="toast_bottom">Choose Avatar Picture</string>
     <string name="supervisor_profile_choose_image_title">picture</string>
-    <string name="action_register">Register</string>
+    <string name="action_register">Register Accout</string>
     <string name="action_sign_in">Sign In</string>
     <string name="action_sign_in_short"></string>
     <string name="prompt_password">Password</string>
     <string name="prompt_username">UserName</string>
 
 
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="title_text">Google Sign-In\nQuickstart</string>
+    <string name="signed_out">Signed out</string>
+    <string name="desc_google_icon">Google Logo</string>
+    <string name="signed_in_fmt">Signed in as: %s</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="server_client_id">523950704705-3q310mv6drgc5mqgte9qvs0cj3l1mahj.apps.googleusercontent.com</string>
+
+
+    <!--  login facebook -->
+    <string name="facebook_app_id">2325524077659776</string>
+    <string name="fb_login_protocol_scheme">fb2325524077659776</string>
+
 </resources>

@@ -31,8 +31,6 @@ public class MaQR extends AppCompatActivity {
         setContentView(R.layout.activity_ma_qr);
 
         button = (Button)findViewById(R.id.btn_maqr);
-        txt_name = (TextView)findViewById(R.id.txt_nameqr);
-        txt_diachi = (TextView)findViewById(R.id.txt_diachi);
         imghinh = (ImageView)findViewById(R.id.img_qr);
 
         final IntentIntegrator intentIntegrator = new IntentIntegrator(this);
@@ -53,8 +51,6 @@ public class MaQR extends AppCompatActivity {
                 Picasso.get().load(result.getContents()).into(imghinh);
                 try {
                     JSONObject jsonObject = new JSONObject(result.getContents());
-                    txt_diachi.setText(jsonObject.getString("DiaChi"));
-                    txt_name.setText(jsonObject.getString("Name"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

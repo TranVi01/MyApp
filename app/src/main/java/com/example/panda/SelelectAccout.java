@@ -28,12 +28,20 @@ public class SelelectAccout extends AppCompatActivity {
 
 
     private   ImageView imageView;
-    private EditText name, email, sdt;
+    private EditText edtname, edtemail, edtsdt;
 
     int REQUEST_CODE =  111;
     private static final int PICK_IMAGE = 222;
 
     ActionBar actionBar;
+    private static String name;
+    private String email;
+    private int sdt;
+    private ImageView image;
+
+
+    public SelelectAccout(){
+    }
 
 
 
@@ -45,10 +53,13 @@ public class SelelectAccout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selelect_accout);
 
-        imageView = (ImageView)findViewById(R.id.img_accout2);
-        name = (EditText)findViewById(R.id.edt_name);
-        email = (EditText) findViewById(R.id.edt_email);
-        sdt = (EditText) findViewById(R.id.edt_phone);
+        imageView = findViewById(R.id.img_accout2);
+        edtname = findViewById(R.id.edt_name);
+        edtemail =  findViewById(R.id.edt_email);
+        edtsdt =  findViewById(R.id.edt_phone);
+
+        name = edtname.getText().toString();
+        email = edtemail.getText().toString();
 
         Button btn_camre = (Button)findViewById(R.id.btn_camera);
         Button btn_library = (Button)findViewById(R.id.btn_library);
@@ -77,6 +88,14 @@ public class SelelectAccout extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -118,6 +137,8 @@ public class SelelectAccout extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+
+
         switch (item.getItemId())
         {
             case android.R.id.home:
@@ -125,33 +146,15 @@ public class SelelectAccout extends AppCompatActivity {
                 return true;
 
             case R.id.mn_save:
+                InformationAccout informationAccout = new InformationAccout();
+                informationAccout.setName(edtname.getText().toString());
+                informationAccout.setEmail(edtemail.getText().toString());
 
-//
-//                try{
-//                    Fragment fragment = new Accout();
-//                    Bundle bd = new Bundle();
-//                    bd.putString("name", " tran hoai vi");
-//                    fragment.setArguments(bd);
-//                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.activity_main_content, fragment).commit();
-//                }catch (Exception e){
-//
-//                }
+//                Intent intent = new Intent(SelelectAccout.this, MainActivity.class);
+//                intent.putExtra("name", edtname.getText().toString());
+//                intent.putExtra("email", edtemail.getText().toString());
+//                startActivity(intent);
 
-
-
-
-//                Bundle bundle = new Bundle();
-//                bundle.putString("name","fsdfdsafsdafsdf");
-////                bundle.putString("email",email.getText().toString());
-////                bundle.putString("phone",sdt.getText().toString());
-//                Fragment fragment = Accout.newInstance();
-//                fragment.setArguments(bundle);//FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.frame_layout, fragment);
-//                transaction.commit();
-
-                onBackPressed();
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }

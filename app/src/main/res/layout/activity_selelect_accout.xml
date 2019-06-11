@@ -8,6 +8,13 @@
 
 
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,8 +32,8 @@
             android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
+            android:ems="10"/>
+            <!--android:inputType="textPersonName"-->
              />
 
         <TextView
@@ -79,6 +86,7 @@
 
 
     </LinearLayout>
+    </ScrollView>
 
 
 
