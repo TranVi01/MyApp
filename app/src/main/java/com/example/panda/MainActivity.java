@@ -1,25 +1,22 @@
 package com.example.panda;
 
-import android.app.Application;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
-import android.widget.TextView;
+
+import com.example.panda.Models.SelelectAccout;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private ActionBar actionBar;
-    private String name;
-    private String email;
-    private int phone;
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -34,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
                     actionBar.setTitle("Shop");
                     LoadFrafment(selectedFragment);
                     return true;
-                case R.id.navigation_gift:
-                    selectedFragment = new Gift();
-                    actionBar.setTitle("Gift");
+                case R.id.navigation_qr:
+                    selectedFragment = new QR();
+                    actionBar.setTitle("Code Qr");
                     LoadFrafment(selectedFragment);
                     return true;
                 case R.id.navigation_maps:
@@ -48,11 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_accout:
                     selectedFragment = new Accout();
                     actionBar.setTitle("Accout");
-                    InformationAccout informationAccout = new InformationAccout();
-                    name = informationAccout.getName();
-                    email = informationAccout.getEmail();
-                    phone = informationAccout.getPhone();
-                    selectedFragment = Accout.newInstance(name, email, phone);
                     LoadFrafment(selectedFragment);
                     return true;
             }
@@ -75,13 +67,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-
         setContentView(R.layout.activity_main);
-
-
-
         actionBar = getSupportActionBar();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

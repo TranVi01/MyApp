@@ -9,13 +9,13 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="android.permission.CAMERA" />
-    <!--<uses-permission android:name="com.example.permission.MAPS_RECEIVE"/>-->
-
+    <uses-permission android:name="com.example.permission.MAPS_RECEIVE"/>
 
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+
     <uses-feature
         android:name="android.hardware.camera2"
         android:required="false" />
@@ -36,7 +36,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".Login_facebook"
+            android:name=".Login_Accout.Login_facebook"
             android:theme="@style/LoginTheme"
             android:exported="true"
             android:configChanges= "keyboard|keyboardHidden|screenLayout|screenSize|orientation">
@@ -50,30 +50,30 @@
 
         </activity>
         <activity
-            android:name=".SignIn_google"
+            android:name=".Login_Accout.SignIn_google"
             android:theme="@style/LoginTheme" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".Login_Accout.SplashActivity"
             android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
 
         <activity
-            android:name=".Login"
+            android:name=".Login_Accout.Login"
             android:theme="@style/LoginTheme" />
 
         <activity
-            android:name=".Register"
+            android:name=".Login_Accout.Register"
             android:theme="@style/LoginTheme" />
 
-        <activity android:name=".MaQR" />
-
-        <activity android:name=".SelelectAccout" />
+        <activity android:name=".Models.SelelectAccout"
+            android:theme="@style/AppTheme"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -85,12 +85,11 @@
 
         <activity android:name=".MainActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
 
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
     </application>
 

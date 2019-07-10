@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">PanDa</string>
     <string name="title_home">Home</string>
-    <string name="title_gift">Gift</string>
+    <string name="title_qr">QR</string>
     <string name="title_maps">Maps</string>
     <string name="title_accout">Accout</string>
     <string name="menu_save">Save</string>
-    <string name="mapkey_api">AIzaSyA0DaaTSCvBfJBYQY7J1dKQtqclu3CAspY</string>
+    <string name="mapkey_api">AIzaSyCfXGQJpul_qLrWAksnY25obFwihZuP4ZA</string>
     <string name="toast_bottom">Choose Avatar Picture</string>
     <string name="supervisor_profile_choose_image_title">picture</string>
     <string name="action_register">Register Accout</string>
@@ -31,5 +31,9 @@
     <!--  login facebook -->
     <string name="facebook_app_id">2325524077659776</string>
     <string name="fb_login_protocol_scheme">fb2325524077659776</string>
+
+
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
 
 </resources>

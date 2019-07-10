@@ -1,13 +1,15 @@
-package com.example.panda;
+package com.example.panda.Login_Accout;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.panda.MainActivity;
+import com.example.panda.R;
 
 public class Register extends Activity {
 

@@ -1,9 +1,13 @@
-package com.example.panda;
+package com.example.panda.Login_Accout;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Bundle;
+
+import com.example.panda.R;
 
 public class SplashActivity extends Activity {
 
@@ -32,4 +36,5 @@ public class SplashActivity extends Activity {
             finish();
         }
     }
+
 }

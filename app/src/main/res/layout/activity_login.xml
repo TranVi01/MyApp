@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@drawable/gradient_lv"
-    tools:context=".Login">
+    tools:context=".Login_Accout.Login">
 
 
 

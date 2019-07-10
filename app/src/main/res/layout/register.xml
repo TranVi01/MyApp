@@ -5,7 +5,7 @@
     android:background="@drawable/gradient_lv"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Register">
+    tools:context=".Login_Accout.Register">
 
 
     <LinearLayout

@@ -1,26 +1,32 @@
-package com.example.panda;
+package com.example.panda.Models;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.panda.Accout;
+import com.example.panda.Database_SQL.DatabaseSQL;
 
+import com.example.panda.R;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 
@@ -29,23 +35,21 @@ public class SelelectAccout extends AppCompatActivity {
 
     private   ImageView imageView;
     private EditText edtname, edtemail, edtsdt;
+    private int id;
 
     int REQUEST_CODE =  111;
     private static final int PICK_IMAGE = 222;
 
     ActionBar actionBar;
-    private static String name;
+    private String name;
     private String email;
-    private int sdt;
-    private ImageView image;
+    private String phone;
+    private byte[] image;
+    private Context context;
 
 
     public SelelectAccout(){
     }
-
-
-
-
 
 
     @Override
@@ -58,8 +62,6 @@ public class SelelectAccout extends AppCompatActivity {
         edtemail =  findViewById(R.id.edt_email);
         edtsdt =  findViewById(R.id.edt_phone);
 
-        name = edtname.getText().toString();
-        email = edtemail.getText().toString();
 
         Button btn_camre = (Button)findViewById(R.id.btn_camera);
         Button btn_library = (Button)findViewById(R.id.btn_library);
@@ -94,9 +96,6 @@ public class SelelectAccout extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
-
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -116,7 +115,7 @@ public class SelelectAccout extends AppCompatActivity {
 
             }
 
-            return;    }
+            return ;    }
     }
 
     @Override
@@ -132,8 +131,6 @@ public class SelelectAccout extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -146,17 +143,30 @@ public class SelelectAccout extends AppCompatActivity {
                 return true;
 
             case R.id.mn_save:
-                InformationAccout informationAccout = new InformationAccout();
-                informationAccout.setName(edtname.getText().toString());
-                informationAccout.setEmail(edtemail.getText().toString());
+                try {
+                    savedata();
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),"fill full the information", Toast.LENGTH_LONG).show();
+                }
 
-//                Intent intent = new Intent(SelelectAccout.this, MainActivity.class);
-//                intent.putExtra("name", edtname.getText().toString());
-//                intent.putExtra("email", edtemail.getText().toString());
-//                startActivity(intent);
-
+                onBackPressed();
+                finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+    public  void savedata (){
+//        BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
+//        Bitmap bitmap = bitmapDrawable.getBitmap();
+//        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArray);
+//        byte[] photo = byteArray.toByteArray();
+        String name = edtname.getText().toString().trim();
+        String email = edtemail.getText().toString().trim();
+        String phone = edtsdt.getText().toString().trim();
+        DatabaseSQL databaseSQL = new DatabaseSQL(this);
+        databaseSQL.updateAccout(name, email, phone);
+
+
     }
 
 
