@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.panda.Adapter.Accout_Adapter;
 import com.example.panda.Database_SQL.DatabaseSQL;
@@ -78,7 +79,7 @@ public class Accout extends Fragment   {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        String[] array = { "hai phong", "ha noi", "hcm", "can tho"};
+        final String[] array = { "giỏ hàng" ,"Lịch sử giao dich" ,"trợ giúp", "cài đặt "};
 
         view = inflater.inflate(R.layout.fragment_accout, container, false);
 
@@ -86,7 +87,6 @@ public class Accout extends Fragment   {
         textemail = view.findViewById(R.id.txt_email);
         textphone = view.findViewById(R.id.txt_phone);
         imageView = view.findViewById(R.id.img_photo);
-        lvaccout = view.findViewById(R.id.lv_accout);
         imageButton = view.findViewById(R.id.btn_edit);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +98,7 @@ public class Accout extends Fragment   {
 
         databaseSQL = new DatabaseSQL(getActivity());
         //tao data cho bang
-   //     databaseSQL.QueryData("INSERT INTO Accout VALUES (null, 'tran hoai vi', 'vi@gmail.com', '123456')");
+ //       databaseSQL.QueryData("INSERT INTO Accout VALUES (null, 'hoai vi', 'vib1400805@student.ctu.edu.vn', '0365275430')");
         Cursor cursor = databaseSQL.GetData(" SELECT * FROM Accout ");
         while (cursor.moveToNext()) {
 
@@ -108,28 +108,18 @@ public class Accout extends Fragment   {
 
         }
 
-//        arrayList = databaseSQL.getAllAccout();
-//        setAdapter();
-//        updateListAccout();
-
 
 
         listView =  view.findViewById(R.id.lv_accout1);
-        ArrayAdapter <String> listViewAdapter = new ArrayAdapter<String>(
+        final ArrayAdapter <String> listViewAdapter = new ArrayAdapter<String>(
                 getActivity(), android.R.layout.simple_list_item_1, array);
         listView.setAdapter(listViewAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                switch (position){
-                    case 0:
-                        break;
-                    case 1:
-
-                    case 2:
-                }
+                String text = listViewAdapter.getItem(position);
+                Toast.makeText(getActivity(),text, Toast.LENGTH_SHORT).show();
             }
         });
             return view;

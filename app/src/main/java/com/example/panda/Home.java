@@ -42,9 +42,9 @@ public class Home extends Fragment {
     private static final String TAG = "";
     private View v;
     private ListView listView;
-    private Product_Adapter product_adapter;
+    Product_Adapter product_adapter;
     private ArrayList<Product> productList;
-    private DatabaseReference databaseReference;
+    DatabaseReference databaseReference;
     private ProgressDialog progressDialog;
 
 
@@ -86,9 +86,7 @@ public class Home extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String nameproduct = String.valueOf(parent.getItemIdAtPosition(position));
-                Toast.makeText(getActivity(),"list item" + nameproduct, Toast.LENGTH_SHORT).show();
-                Dialogproduct();
+                Dialogproduct(position);
 
             }
         });
@@ -111,11 +109,11 @@ public class Home extends Fragment {
         progressDialog.setCancelable(false);
 
     }
-    public void Dialogproduct (){
-
+    public void Dialogproduct (int position){
+        Product product = productList.get(position);
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-        dialog.setTitle("");
-        dialog.setMessage("Do you want to add the item shell");
+        dialog.setTitle(product.getName() + "\n" + "\tgiá:" + product.getPrice()+ "VNĐ");
+        dialog.setMessage("Do you want to add the cart?");
         dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -125,7 +123,7 @@ public class Home extends Fragment {
         dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getActivity(),"added to the item shell", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"added to the cart!", Toast.LENGTH_LONG).show();
             }
         });
         dialog.show();

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 
 import com.example.panda.MainActivity;
@@ -34,31 +35,17 @@ public class Login_facebook extends AppCompatActivity {
 
 
         // If using in a fragment
-        loginButton = (LoginButton) findViewById(R.id.login_button);
-        loginButton.setReadPermissions("email");
+        loginButton =  findViewById(R.id.login_button);
+//        loginButton.setReadPermissions("email");
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selecetfacebook();
+            }
+        });
 
-//        loginButton.setFragment(Login_facebook.this);
-//
- //        Callback registration
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                // App code
-//
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//                // App code
-//            }
-//
-//            @Override
-//            public void onError(FacebookException exception) {
-//                // App code
-//            }
-//        });
-
-
+    }
+    private void selecetfacebook(){
         callbackManager = CallbackManager.Factory.create();
 
         LoginManager.getInstance().registerCallback(callbackManager,
@@ -86,8 +73,6 @@ public class Login_facebook extends AppCompatActivity {
 
 
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
-
-
     }
 
 

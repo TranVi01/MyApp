@@ -33,17 +33,20 @@
                 android:id="@+id/txt_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:hint="Name"/>
 
             <TextView
                 android:id="@+id/txt_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:hint="Emai"/>
             <TextView
                 android:id="@+id/txt_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:hint="PhoneNumber"/>
 
 
@@ -59,20 +62,12 @@
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/lv_accout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="2">
-
-    </ListView>
-
 
     <ListView
         android:id="@+id/lv_accout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_weight="1">
 

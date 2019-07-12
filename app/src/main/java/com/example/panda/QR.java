@@ -2,8 +2,6 @@ package com.example.panda;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,24 +25,33 @@ public class QR extends Fragment {
         return fragment;
     }
     Button button;
-    TextView txt_name, txt_diachi;
+    TextView txt_name;
     ImageView imghinh;
     View view;
+    private IntentIntegrator intentIntegrator;
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.qr, container, false);
 
-        button = (Button)view.findViewById(R.id.btn_maqr);
-        imghinh = (ImageView)view.findViewById(R.id.img_qr);
+        button = view.findViewById(R.id.btn_maqr);
+        imghinh = view.findViewById(R.id.img_qr);
         txt_name = view.findViewById(R.id.txt_qr);
 
-        final IntentIntegrator intentIntegrator = new IntentIntegrator(getActivity());
+        intentIntegrator = new IntentIntegrator(getActivity());
+        intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+        intentIntegrator.setPrompt("Scan QR code");
+        intentIntegrator.setCameraId(0);
+        // bao tieng beep khi quet thanh cong
+        intentIntegrator.setBeepEnabled(true);
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,16 +70,11 @@ public class QR extends Fragment {
                 Toast.makeText(getActivity(), "Cancelled", Toast.LENGTH_LONG).show();
             } else {
                 txt_name.setText(result.getContents());
-                Picasso.get().load(result.getContents()).into(imghinh);
-                try {
-                    JSONObject jsonObject = new JSONObject(result.getContents());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        } else {
 
-            super.onActivityResult(requestCode, resultCode, data);
+//               Picasso.get().load(result.getContents()).into(imghinh);
+
+            }
         }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
